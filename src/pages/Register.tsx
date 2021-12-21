@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { firebaseNow, firestore, auth } from '../firebase/firebase';
-
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import toast, { Toaster } from 'react-hot-toast';
 
-const alertSuccess = () => toast.success('Usuario registrado exitosamente.');
 const alertError = () => toast.error('Usuario incorrecto.');
 
 
@@ -42,7 +39,7 @@ const Register = () => {
                 // ...
                 firestore.collection("usuarios")
                 .doc().set(values)
-                history.push('/login')
+                history.push('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -56,7 +53,7 @@ const Register = () => {
     }
     const [typeInput, setTypeInput] = useState("password")
     const changeType = () => {
-        if (typeInput == "password") {
+        if (typeInput === "password") {
             setTypeInput("text")
         } else {
             setTypeInput("password")
@@ -80,7 +77,7 @@ const Register = () => {
                     <label>Contraseña</label>
                     <span className='eye' onClick={changeType}>
                         {
-                            typeInput == "password" ? <AiFillEye /> : <AiFillEyeInvisible />
+                            typeInput === "password" ? <AiFillEye /> : <AiFillEyeInvisible />
                         }
                     </span>
                     <input type={typeInput} placeholder="**********" name='password' onChange={capturarDatos} required />

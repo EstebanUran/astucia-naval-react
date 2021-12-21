@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import AuthContext from '../context/AuthContext'
 import { useContext } from 'react'
 import { firestore, auth } from '../firebase/firebase';
@@ -79,7 +79,6 @@ const Login = () => {
                         <label>Correo</label>
                         <input type="email" placeholder="correo@ejemplo.com" name='email' onChange={capturarDatos} required />
                         <label >Contraseña</label>
-
                         <span className='eye' onClick={changeType}>
                             {
                                 typeInput == "password" ? <AiFillEye /> : <AiFillEyeInvisible />

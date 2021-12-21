@@ -16,7 +16,7 @@ const Header = () => {
         setUser({
             id:''
         });
-        history.push('/login')
+        history.push('/')
     }
 
     return (

@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Game from './pages/Game';
 import Profile from './pages/Profile';
 import ListUsers from './pages/ListUsers';
-
+import NotFound from './pages/NotFound';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Route {...rest} render={(props: any) => (
         user
           ? <Component {...props} />
-          : <Redirect to="/login" />
+          : <Redirect to="/" />
       )} />
     )
 
@@ -30,10 +30,11 @@ function App() {
         <BrowserRouter>
           <Switch>
            <Route exact path="/register" component={Register}/> 
-           <Route exact path="/login" component={Login}/>
+           <Route exact path="/" component={Login}/>
            <PrivateRoute exact path="/game" component={Game}/>
            <PrivateRoute exact path="/profile" component={Profile}/>
            <PrivateRoute exact path="/users" component={ListUsers}/>
+           <Route component={NotFound}></Route>
           </Switch>
         </BrowserRouter>
       </AuthContext.Provider>

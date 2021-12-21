@@ -45,7 +45,7 @@ const Game = () => {
       let i = posicionRandom();
       let j = posicionRandom();
 
-      if (axisRandom == 0) {
+      if (axisRandom === 0) {
         if (ponerBarcoHorizontal(i, j)) {
           totalBarcos++;
         }
@@ -55,7 +55,6 @@ const Game = () => {
         }
       }
     }
-    console.log(tablero)
     setPosBarcos([...arrayPosiconesBarcos])
   }
 
@@ -65,7 +64,7 @@ const Game = () => {
     if (tablero[i][j] === '') {
       let aux = [...tablero];
       if (i + 3 < tablero.length) {
-        if (aux[i + 1][j] == '' && aux[i + 2][j] == '' && aux[i + 3][j] == '') {
+        if (aux[i + 1][j] === '' && aux[i + 2][j] === '' && aux[i + 3][j] === '') {
           puso = true;
           for (let inde = 0; inde < barco.length; inde++) {
             aux[i][j] = barco[inde].toString();
@@ -85,7 +84,7 @@ const Game = () => {
     if (tablero[i][j] === '') {
       let aux = [...tablero];
       if (j + 3 < tablero.length) {
-        if (aux[i][j + 1] == '' && aux[i][j + 2] == '' && aux[i][j + 3] == '') {
+        if (aux[i][j + 1] === '' && aux[i][j + 2] === '' && aux[i][j + 3] === '') {
           puso = true;
           for (let inde = 0; inde < barco.length; inde++) {
             aux[i][j] = barco[inde].toString();
@@ -114,18 +113,18 @@ const Game = () => {
   const validar = (i: number, j: number) => {
     const aux2 = [...tablero]
     const auxBarcos = [...posBarcos]
-    if (tablero[i][j] == '') {
+    if (tablero[i][j] === '') {
       aux2[i][j] = "X"
       setTablero([...aux2])
-    } if (tablero[i][j] == 'F') {
+    } if (tablero[i][j] === 'F') {
       aux2[i][j] = "O";
 
       for (let indexI = 0; indexI < auxBarcos.length; indexI++) {
         for (let indexJ = 0; indexJ < auxBarcos[indexI].length; indexJ++) {
-          if (auxBarcos[indexI][indexJ][0] == i && auxBarcos[indexI][indexJ][1] == j) {
+          if (auxBarcos[indexI][indexJ][0] === i && auxBarcos[indexI][indexJ][1] === j) {
             auxBarcos[indexI].splice(indexJ, 1)
           }
-          if (auxBarcos[indexI].length == 0) {
+          if (auxBarcos[indexI].length === 0) {
             setTotalBarcos(totalBarcos + 1)
           }
         }
@@ -136,7 +135,7 @@ const Game = () => {
   }
   useEffect(() => {
     getUser(user?.id)
-    if (totalBarcos == 5) {
+    if (totalBarcos === 5) {
       alertSuccess()
       values.games = values.games + 1;
       pushFirebase()
@@ -236,7 +235,7 @@ const Game = () => {
                   camposI.map((camposJ, j) => (
                     <>
                       <div className='posicion'>
-                        <button key={j} className='barco'>{camposJ == 'F' ? '' : camposJ}</button>
+                        <button key={j} className='barco'>{camposJ === 'F' ? '' : camposJ}</button>
                       </div>
                     </>
                   ))
