@@ -1,0 +1,27 @@
+.container-list-users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    table{
+        text-align: center;
+        box-shadow: 1px 1px 5px #000;
+        border-radius: 7px;
+        background:$white-bg;
+        padding: 20px 40px;
+        th{
+            width: 180px;
+        }
+        thead, tbody{
+            padding: 20px 40px;
+            th{
+                padding: 10px;
+            }
+        }
+        tbody tr{
+            padding: 20px;
+            &:hover{
+                background-color: $secondary;
+            }
+        }
+    }
+}

@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import './style/app.scss';
+import AuthContext, { User } from './context/AuthContext';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Game from './pages/Game';
+import Profile from './pages/Profile';
+import ListUsers from './pages/ListUsers';
+
+
 
 function App() {
+
+  const [user, setUser] = useState<User>();
+    // RUTAS PRIVADAS
+    const PrivateRoute = ({ component: Component, ...rest }: any) => (
+      <Route {...rest} render={(props: any) => (
+        user
+          ? <Component {...props} />
+          : <Redirect to="/login" />
+      )} />
+    )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <AuthContext.Provider value={{ user, setUser }}>
+        <BrowserRouter>
+          <Switch>
+           <Route exact path="/register" component={Register}/> 
+           <Route exact path="/login" component={Login}/>
+           <PrivateRoute exact path="/game" component={Game}/>
+           <PrivateRoute exact path="/profile" component={Profile}/>
+           <PrivateRoute exact path="/users" component={ListUsers}/>
+          </Switch>
+        </BrowserRouter>
+      </AuthContext.Provider>
+
+    </>
   );
 }
 
