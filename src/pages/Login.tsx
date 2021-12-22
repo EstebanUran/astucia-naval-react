@@ -75,20 +75,24 @@ const Login = () => {
             <div className='container-login'>
                 <form onSubmit={submit} className="login">
                     <div className="login-form">
-                        <h1>Login</h1>
-                        <label>Correo</label>
-                        <input type="email" placeholder="correo@ejemplo.com" name='email' onChange={capturarDatos} required />
-                        <label >Contraseña</label>
-                        <span className='eye' onClick={changeType}>
-                            {
-                                typeInput == "password" ? <AiFillEye /> : <AiFillEyeInvisible />
-                            }
-                        </span>
-                        <input type={typeInput} placeholder="**********" name='password' onChange={capturarDatos} required />
+                        <h1>Iniciar sesión</h1>
+                        <div className="form-control">
+                            <label>Correo</label>
+                            <input type="email" placeholder="correo@ejemplo.com" name='email' onChange={capturarDatos} required />
+                        </div>
+                        <div className="form-control">
+                            <label >Contraseña</label>
+                            <span className='eye' onClick={changeType}>
+                                {
+                                    typeInput == "password" ? <AiFillEye /> : <AiFillEyeInvisible />
+                                }
+                            </span>
+                            <input type={typeInput} placeholder="**********" name='password' onChange={capturarDatos} required />
+                        </div>
                         <div className='register'>
                             <a onClick={register} >Registrarse</a>
                         </div>
-                        <input type='submit' value="Sing in" className='sing-in' />
+                        <input type='submit' value="Entrar" className='sing-in' />
                     </div>
                 </form>
             </div>

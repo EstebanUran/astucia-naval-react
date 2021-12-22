@@ -2,23 +2,23 @@
     display: flex;
     justify-content: center;
     background-color: $primary;
+    background-image: url(https://images7.alphacoders.com/584/thumb-1920-584238.jpg);
 .login{
-    width: 30%;
     animation-duration: 1s;
     animation-delay: 2s;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 375px;
     height: 100vh;
+    width: 100%;
     .login-form {
         width:100%;
-        height: 420px;
         padding: 40px 50px;
         padding-bottom: 40px;
         margin: 0 auto;
-        background:$white-bg;
+        background-color: $white;
         border-radius: 7px;
-        margin-right: 10px;
         box-shadow: 1px 1px 5px #000;
         h1 {
             font-weight: 600;
@@ -38,7 +38,6 @@
         }
         input, button {
             width: 100%;
-            height: 50px;
             margin-top: 10px;
             margin-bottom: 30px;
             border: none;
@@ -64,11 +63,11 @@
         .sing-in {
             text-align: center;
             text-indent: 0px;
-            font-size: 1.3rem;
             font-weight: 500;
+            font-size: 1.3rem;
             letter-spacing: 1.1px;
-            height: 68px;
             margin-top: 30px;
+            padding: 1em;
             margin-bottom: 15px;
             color: $white;
             text-shadow: 1px 1px 0 rgba(140,140,140,0.2) , -1px -1px 1px rgba(0,0,0,0.27);
@@ -122,13 +121,21 @@
                     background-color: $secondary;
                   }
               }
-          } 
-          .eye{
+          }
+          .form-control{
+            display: grid;
             position: relative;
-            top: 11.5%;
-            left: 60%;
-            cursor: pointer;
-          }    
+            .eye{
+              position: absolute;
+              margin-top: 40px;
+              right: 5px;
+              cursor: pointer;
+            }
+            input{
+              height: 40px;
+            }
+          } 
+             
     }
 }
 }

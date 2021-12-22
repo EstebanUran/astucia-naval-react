@@ -22,7 +22,7 @@ const Register = () => {
 
     const capturarDatos = (e: any) => {
         //captura el nombre y valor 
-        
+
         const { name, value } = e.target
         setValues({ ...values, [name]: value })
     }
@@ -38,7 +38,7 @@ const Register = () => {
                 const user = userCredential.user;
                 // ...
                 firestore.collection("usuarios")
-                .doc().set(values)
+                    .doc().set(values)
                 history.push('/')
             })
             .catch((error) => {
@@ -60,34 +60,44 @@ const Register = () => {
         }
     }
     return (
-        
+
         <div className='container-register'>
             <form onSubmit={submit} className='register'>
-            <Toaster />
+                <Toaster />
                 <div className='register-form'>
                     <h1>Register</h1>
-                    <label>nombre</label>
-                    <input type="text" placeholder="nombre" name='name' onChange={capturarDatos} required />
-                    <label>Apellidos</label>
-                    <input type="text" placeholder="apellido" name='lastName' onChange={capturarDatos} required />
-                    <label>Edad</label>
-                    <input type="number" placeholder="edad" name='age' onChange={capturarDatos} required />
-                    <label>Correo</label>
-                    <input type="email" placeholder="correo@ejemplo.com" name='email' onChange={capturarDatos} required />
-                    <label>Contraseña</label>
-                    <span className='eye' onClick={changeType}>
-                        {
-                            typeInput === "password" ? <AiFillEye /> : <AiFillEyeInvisible />
-                        }
-                    </span>
-                    <input type={typeInput} placeholder="**********" name='password' onChange={capturarDatos} required />
+                    <div className="form-control">
+                        <label>nombre</label>
+                        <input type="text" placeholder="nombre" name='name' onChange={capturarDatos} required />
+                    </div>
+                    <div className="form-control">
+                        <label>Apellidos</label>
+                        <input type="text" placeholder="apellido" name='lastName' onChange={capturarDatos} required />
+                    </div>
+                    <div className="form-control">
+                        <label>Edad</label>
+                        <input type="number" placeholder="edad" name='age' onChange={capturarDatos} required />
+                    </div>
+                    <div className="form-control">
+                        <label>Correo</label>
+                        <input type="email" placeholder="correo@ejemplo.com" name='email' onChange={capturarDatos} required />
+                    </div>
+                    <div className="form-control">
+                        <label>Contraseña</label>
+                        <span className='eye' onClick={changeType}>
+                            {
+                                typeInput === "password" ? <AiFillEye /> : <AiFillEyeInvisible />
+                            }
+                        </span>
+                        <input type={typeInput} placeholder="**********" name='password' onChange={capturarDatos} required />
+                    </div>
                     <button type='submit' className='sing-up'>Registrar</button>
                 </div>
-                
+
             </form>
-           
+
         </div>
-        
+
     )
 }
 

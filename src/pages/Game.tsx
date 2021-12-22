@@ -108,16 +108,16 @@ const Game = () => {
     } else {
       alertError()
     }
-
+    e.target.reset()
   }
   const validar = (i: number, j: number) => {
     const aux2 = [...tablero]
     const auxBarcos = [...posBarcos]
     if (tablero[i][j] === '') {
-      aux2[i][j] = "X"
+      aux2[i][j] = "✖️"
       setTablero([...aux2])
     } if (tablero[i][j] === 'F') {
-      aux2[i][j] = "O";
+      aux2[i][j] = "⭕";
 
       for (let indexI = 0; indexI < auxBarcos.length; indexI++) {
         for (let indexJ = 0; indexJ < auxBarcos[indexI].length; indexJ++) {
@@ -207,20 +207,18 @@ const Game = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className='game-container'>
         <div className='total'>
+          <form onSubmit={capturarPosicion} className='container-posicion'>
           <p><b>Barcos destruidos: {totalBarcos}</b></p>
-        </div>
-        <form onSubmit={capturarPosicion} className='container-posicion'>
-          <p><b>Ingrese la coordenada: </b></p>
-          <input type="text" onChange={(e) => setPosicion(e.target.value)} /> <br />
-          <div className='container-buttons'>
-            <div className='buttons'>
+            <p><b>Ingrese la coordenada: </b></p>
+            <input type="text" placeholder='Coordenada' onChange={(e) => setPosicion(e.target.value)} /> <br />
+            <div className='container-buttons'>
               <button type='submit'>Ejecutar</button>
               <button type='button' onClick={limpiar}>Limpiar</button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
         <div className='container'>
           <div className='container-tablero'>
             <div className='container-numeros-tablero'>
@@ -244,8 +242,8 @@ const Game = () => {
             </div>
           </div>
         </div>
+        <Toaster />
       </div>
-      <Toaster />
     </>
   )
 }

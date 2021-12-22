@@ -26,25 +26,25 @@ const Header = () => {
                     <li onClick={toGame}>
                         <a>
                             <span className="icon"><IoGameController /></span>
-                            <span className="title">Game</span>
+                            <span className="title">Juego</span>
                         </a>
                     </li>
                     <li onClick={toProfile}>
                         <a>
                             <span className="icon"><FaUserAlt /></span>
-                            <span className="title">Profile</span>
+                            <span className="title">Perfil</span>
                         </a>
                     </li>
                     <li onClick={toUsers}>
                         <a>
                             <span className="icon"><FaListUl /></span>
-                            <span className="title">Users</span>
+                            <span className="title">Usuarios</span>
                         </a>
                     </li>
                     <li onClick={toExit}>
                         <a>
                             <span className="icon"><ImExit /></span>
-                            <span className="title">Exit</span>
+                            <span className="title">Salir</span>
                         </a>
                     </li>
 

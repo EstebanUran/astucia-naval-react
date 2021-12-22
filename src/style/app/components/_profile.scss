@@ -1,10 +1,10 @@
-.container-register{
+.container-profile{
     display: flex;
     justify-content: center;
     background-color: $primary;
     background-image: url(https://images7.alphacoders.com/584/thumb-1920-584238.jpg);
     padding: 20px 0;
-    .register{
+    .profile{
         width: 100%;
         animation-duration: 1s;
         animation-delay: 2s;
@@ -12,7 +12,7 @@
         justify-content: center;
         align-items: center;
         max-width: 375px;
-        .register-form{
+        .profile-form{
             width:100%;
             padding: 40px 50px;
             margin: 0 auto;
@@ -66,21 +66,9 @@
                  opacity: .7; 
                 }
               }
-              .eye{
-                position: relative;
-                left: 60%;
-                top: 48px;
-                cursor: pointer;
-              }   
               .form-control{
                 display: grid;
                 position: relative;
-                .eye{
-                  position: absolute;
-                  top: 40px;
-                  left: 90%;
-                  cursor: pointer;
-                }
                 input{
                   height: 40px;
                 }
@@ -89,12 +77,6 @@
         @media (max-width: 370px) {
             .register{
               width: 95%;
-            }
-            .eye{
-              position: relative;
-              top: 11.5px;
-              left: 20px;
-              cursor: pointer;
             }
           }
     }

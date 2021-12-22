@@ -72,18 +72,29 @@ const Profile = () => {
     return (
         <>
             <Header />
-            <div className='container-register'>
-                <form onSubmit={submit} className='register'>
-                    <div className='register-form'>
-                        <h1>Profile</h1>
-                        <label>nombre</label>
-                        <input type="text" placeholder="nombre" name='name' value={values.name} onChange={capturarDatos} required disabled={disabledInput.disabled} />
-                        <label>Apellidos</label>
-                        <input type="text" placeholder="apellido" value={values.lastName} name='lastName' onChange={capturarDatos} required disabled={disabledInput.disabled} />
-                        <label>Edad</label>
-                        <input type="number" placeholder="edad" value={values.age} name='age' onChange={capturarDatos} required disabled={disabledInput.disabled} />
-                        <label>Correo</label>
-                        <input type="email" placeholder="correo@ejemplo.com" value={values.email} name='email' onChange={capturarDatos} required disabled />
+            <div className='container-profile'>
+                <form onSubmit={submit} className='profile'>
+                    <div className='profile-form'>
+                        <h1>Perfil</h1>
+                        <div className="form-control">
+                            <label>nombre</label>
+                            <input type="text" placeholder="nombre" name='name' value={values.name} onChange={capturarDatos} required disabled={disabledInput.disabled} />
+                        </div>
+                        <div className="form-control">
+
+                            <label>Apellidos</label>
+                            <input type="text" placeholder="apellido" value={values.lastName} name='lastName' onChange={capturarDatos} required disabled={disabledInput.disabled} />
+                        </div>
+                        <div className="form-control">
+
+                            <label>Edad</label>
+                            <input type="number" placeholder="edad" value={values.age} name='age' onChange={capturarDatos} required disabled={disabledInput.disabled} />
+                        </div>
+                        <div className="form-control">
+
+                            <label>Correo</label>
+                            <input type="email" placeholder="correo@ejemplo.com" value={values.email} name='email' onChange={capturarDatos} required disabled />
+                        </div>
                         <button type='submit' className='sing-up'>{disabledInput.valueButton}</button>
                     </div>
                 </form>
